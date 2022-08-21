@@ -14,11 +14,49 @@ int main() {
             {{"JFK", 1639}, {"IAD", 1466}, {"LAX", 830}, {"AUS", 771}, {"PDX", 978}, {"CLE", 1223}, {"MIA", 1718}}
     };
 
+    std::cout << std::endl << "***************************" << std::endl;
+    std::cout << "***************************" << std::endl;
+    std::cout << "* BEFORE ADDING COMPONENT *" << std::endl;
+    std::cout << "***************************" << std::endl;
+    std::cout << "***************************" << std::endl << std::endl;
     Graph graphInstance(startingAirports, nonstopConnections);
     std::cout << "Adjacency List: " << std::endl;
     graphInstance.showAdjacencyList();
     std::cout << std::endl << "Adjacency Matrix: " << std::endl;
     graphInstance.showAdjacencyMatrix();
 
+    //Adding and Deleting
+    std::string airportToAdd = "SAT";
+    std::vector<std::pair<std::string, int32_t>> airportToAddConnections = {
+            {"JFK", 1590},
+            {"IAD", 1366},
+            {"LAX", 1201},
+            {"MIA", 1141},
+            {"DEN", 802}
+    };
+    graphInstance.addComponent(airportToAdd, airportToAddConnections);
+
+    std::cout << std::endl << "**************************" << std::endl;
+    std::cout << "**************************" << std::endl;
+    std::cout << "* AFTER ADDING COMPONENT *" << std::endl;
+    std::cout << "**************************" << std::endl;
+    std::cout << "**************************" << std::endl;
+    std::cout << "Adjacency List: " << std::endl;
+    graphInstance.showAdjacencyList();
+    std::cout << std::endl << "Adjacency Matrix: " << std::endl;
+    graphInstance.showAdjacencyMatrix();
+
+    std::cout << std::endl << "****************************" << std::endl;
+    std::cout << "****************************" << std::endl;
+    std::cout << "* AFTER DELETING COMPONENT *" << std::endl;
+    std::cout << "****************************" << std::endl;
+    std::cout << "****************************" << std::endl;
+    graphInstance.deleteComponent("SAT");
+    std::cout << "Adjacency List: " << std::endl;
+    graphInstance.showAdjacencyList();
+    std::cout << std::endl << "Adjacency Matrix: " << std::endl;
+    graphInstance.showAdjacencyMatrix();
+
+    std::cout << "Done!" << std::endl;
     return 0;
 }
